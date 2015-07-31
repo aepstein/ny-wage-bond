@@ -1,0 +1,29 @@
+<h1>Nail Salon Wage Bond Premium Calculator</h1>
+
+<form>
+  <div class="form-group"
+  ng-class="{'has-success': fullTimeEmployeesValid, 'has-error': !fullTimeEmployeesValid}">
+  <label class="control-label">How many employees work full time?</label>
+  <input class="form-control" type="text" ng-model="fullTimeEmployees"/>
+  </div>
+  <div class="form-group"
+  ng-class="{'has-success': partTimeHoursValid, 'has-error': !partTimeHoursValid}">
+  <label class="control-label">How many hours do part time employees work altogether per week?</label>
+  <input class="form-control" type="text" ng-model="partTimeHours"/>
+  </div>
+</form>
+
+<p ng-if="fullTimeEquivalents" class="alert alert-success">
+  You employ {{fullTimeEquivalents}} full time equivalents.
+  <span ng-if="requiredBond > 0">
+  Your required wage bond is {{requiredBond | currency}}.
+  </span>
+  <span ng-if="requiredBond == 0">
+  You do not have to purchase a wage bond.
+  </span>
+</p>
+
+<p ng-if="!fullTimeEquivalents" class="alert alert-warning">
+Please specify number of full time employees and total part time employee hours
+per week above.
+</p>
