@@ -23,8 +23,7 @@ angular.module('myApp.view1', ['ngRoute'])
     else {
       $scope.partTimeHoursValid = false;
     }
-    if ( typeof fullTimeEmployees==='number' && (fullTimeEmployees%1)===0 &&
-    typeof partTimeHours=='number' && (partTimeHours%1)===0 &&
+    if ( $scope.fullTimeEmployeesValid && $scope.partTimeHoursValid &&
     ( fullTimeEmployees > 0 || partTimeHours > 0 ) ) {
       $scope.fullTimeEquivalents = fullTimeEmployees + Math.floor( partTimeHours/40 );
       if ( $scope.fullTimeEquivalents < 2 ) {
@@ -42,6 +41,10 @@ angular.module('myApp.view1', ['ngRoute'])
       else {
         $scope.requiredBond = 125000;
       }
+    }
+    else {
+      $scope.fullTimeEquivalents = null;
+      $scope.requiredBond = null;
     }
   };
   $scope.$watchGroup( ['fullTimeEmployees', 'partTimeHours'], $scope.calculate );
