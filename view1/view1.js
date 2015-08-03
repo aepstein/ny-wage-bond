@@ -41,8 +41,10 @@ angular.module('myApp.view1', ['ngRoute'])
       else {
         $scope.requiredBond = 125000;
       }
+      $scope.validForm = true;
     }
     else {
+      $scope.validForm = false;
       $scope.fullTimeEquivalents = null;
       $scope.requiredBond = null;
     }
