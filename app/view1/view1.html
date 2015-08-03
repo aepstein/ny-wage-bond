@@ -13,7 +13,7 @@
   </div>
 </form>
 
-<p ng-if="fullTimeEquivalents" class="alert alert-success">
+<p ng-if="validForm" class="alert alert-success">
   You employ {{fullTimeEquivalents}} full time equivalents.
   <span ng-if="requiredBond > 0">
   Your required wage bond is {{requiredBond | currency}}.
@@ -23,7 +23,7 @@
   </span>
 </p>
 
-<p ng-if="!fullTimeEquivalents" class="alert alert-warning">
+<p ng-if="!validForm" class="alert alert-warning">
 Please specify number of full time employees and total part time employee hours
 per week above.
 </p>
